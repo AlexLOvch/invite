@@ -1,0 +1,5 @@
+              <ul class="nav pull-right" >
+                <li><span class=title>Logged in as: <%=current_user.email %></span> </li>
+                <li><%= link_to "Profile",   profile_path  %></li>
+                <li><%= link_to "Logout", log_out_path, :method => :delete  %></li>
+              </ul>
