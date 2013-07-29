@@ -11,8 +11,8 @@ class User < ActiveRecord::Base
 
 
    def empty_phone?
-   	 phone.blank?
-   end	
+      phone.blank?
+   end  
 
    def self.authenticate(email, password)  
         user = find_by_email(email)  

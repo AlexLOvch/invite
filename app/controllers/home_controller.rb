@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
-	before_filter :autorize_user!
+  before_filter :authorize_user!
 
-	def index
-	end	
+  def index
+  end  
 end

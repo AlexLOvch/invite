@@ -1,5 +1,5 @@
 module ApplicationHelper
-	ALERT_TYPES = [:error, :info, :success, :warning]
+  ALERT_TYPES = [:error, :info, :success, :warning]
 
   def flash_messages
     flash_messages = []

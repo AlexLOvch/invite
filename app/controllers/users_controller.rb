@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
- prepend_before_filter	:autorize_user!, :except=>[:new,:create]
+ prepend_before_filter  :authorize_user!, :except=>[:new,:create]
  before_filter :get_user, :only=>[:profile,:update_profile]
 
 
@@ -41,10 +41,10 @@ class UsersController < ApplicationController
 
 
 protected
-	
-	def get_user
-		@user = User.find(current_user.id)
-	end	
+  
+  def get_user
+    @user = User.find(current_user.id)
+  end  
 
 
 end
