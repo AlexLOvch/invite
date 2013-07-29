@@ -11,5 +11,6 @@ Invite::Application.routes.draw do
   namespace :admin do
      resources :users
      resources :invitations, :only => [:index, :show, :create,:new]
+     root :to => "users#index"
   end
 end

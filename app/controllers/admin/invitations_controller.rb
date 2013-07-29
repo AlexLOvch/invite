@@ -16,7 +16,7 @@ class Admin::InvitationsController < ApplicationController
   def create
     @invitation = Invitation.new(params[:invitation])
     if @invitation.save
-      InvitationMailer.welcome_email(@invitation).deliver
+      InvitationMailer.invite_email(@invitation).deliver
       redirect_to [:admin, @invitation], :notice => "Successfully created invitation."
     else
       render action: 'new'

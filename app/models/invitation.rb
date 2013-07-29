@@ -3,9 +3,14 @@ class Invitation < ActiveRecord::Base
   before_save :generate_link
   validates_presence_of :email  
 
-  def self.valid?(link)
+  def self.active?(link)
   	invite=find_by_link(link)
-  	if invite && User.find_by_email(invite.email).blank?
+  	!!(invite && User.find_by_email(invite.email).nil?)
+  end	
+
+  def self.already_registered?(link)
+  	invite=find_by_link(link)
+  	!!(invite && !User.find_by_email(invite.email).nil?)
   end	
 
 

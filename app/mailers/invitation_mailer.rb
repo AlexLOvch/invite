@@ -1,5 +1,6 @@
 class InvitationMailer < ActionMailer::Base
   default from: "from@example.com"
+  default_url_options[:host]="example.com"
 
 
   def invite_email(invitation)

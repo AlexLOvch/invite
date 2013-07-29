@@ -4,7 +4,14 @@ class UsersController < ApplicationController
 
 
   def new  
-    @user = User.new  
+    if current_user
+      redirect_to root_url, :flash => { :notice => "You are already registered and loged in."}
+    elsif params.has_key?(:link) && Invitation.active?(params[:link])
+      @user = User.new  
+      @user.email=Invitation.find_by_link(params[:link]).email
+    else  
+      redirect_to log_in_url, :flash => Invitation.already_registered?(params[:link]) ? { :notice => "You are already registered! Please log in."} : { :error =>  "Signup possible only by invitation!" } 
+    end  
   end  
     
   def create  

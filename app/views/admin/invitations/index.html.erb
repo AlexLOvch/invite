@@ -3,6 +3,7 @@
 <table class='table table-striped'>
   <tr>
     <th>Email</th>
+    <th>Link</th>
     <th>Sended at</th>
     <th >Actions</th>
   </tr>
@@ -10,6 +11,7 @@
     <% for invitation in @invitations %>
       <tr>
         <td><%= invitation.email %></td>
+        <td><%= invitation.link %></td>
         <td><%= invitation.updated_at %></td>
         <td><%= link_to "Show", [:admin, invitation] %></td>
       </tr>
