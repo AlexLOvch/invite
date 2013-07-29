@@ -2,7 +2,7 @@ class Admin::InvitationsController < ApplicationController
   layout 'admin'
   
   def index
-    @invitations = Invitation.all
+    @invitations = Invitation.page params[:page]
   end
 
   def show

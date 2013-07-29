@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
  prepend_before_filter  :authorize_user!, :except=>[:new,:create]
- before_filter :get_user, :only=>[:profile,:update_profile]
+
 
 
   def new  
@@ -25,13 +25,13 @@ class UsersController < ApplicationController
 
 
   def profile
-    @user = User.find(current_user.id)
+    @user = current_user
     render action: 'edit'
   end
   
 
   def update_profile
-    @user = User.find(current_user.id)
+    @user = current_user
     if @user.update_attributes(params[:user])
       redirect_to  profile_path, :notice  => "Successfully updated user."
     else
@@ -42,9 +42,6 @@ class UsersController < ApplicationController
 
 protected
   
-  def get_user
-    @user = User.find(current_user.id)
-  end  
-
+  
 
 end
