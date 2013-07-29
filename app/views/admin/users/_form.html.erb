@@ -1,0 +1,12 @@
+<%= form_for [:admin, @user] do |f| %>
+  <% @user.errors.full_messages.each do |msg| %>
+      <p><%= msg %></p>
+   <% end %> 
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

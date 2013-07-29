@@ -1,0 +1,12 @@
+<%= "Admin/User" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_admin_user_path(@user) %> |
+  <%= link_to "Destroy", [:admin, @user], :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", admin_users_path %>
+</p>

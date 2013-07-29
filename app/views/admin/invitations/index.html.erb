@@ -1,0 +1,21 @@
+<%=  "Admin/Invitations" %>
+
+<table class='table table-striped'>
+  <tr>
+    <th>Email</th>
+    <th>Sended at</th>
+    <th >Actions</th>
+  </tr>
+  <% unless @invitations.blank? %>
+    <% for invitation in @invitations %>
+      <tr>
+        <td><%= invitation.email %></td>
+        <td><%= invitation.updated_at %></td>
+        <td><%= link_to "Show", [:admin, invitation] %></td>
+      </tr>
+    <% end %>
+  <% end %>
+
+</table>
+
+<p><%= link_to "New Admin/Invitation", new_admin_invitation_path %></p>
