@@ -4,12 +4,12 @@ class Invitation < ActiveRecord::Base
   validates_presence_of :email  
 
   def self.active?(link)
-    invite = where(link: link).present?
+    invite = where(link: link).first
     invite && User.where(email: invite.email).empty? 
   end  
 
   def self.already_registered?(link)
-    invite = where(link: link).present?
+    invite = where(link: link).first
     invite && User.where(email: invite.email).present? 
   end  
 
@@ -18,7 +18,15 @@ class Invitation < ActiveRecord::Base
 
   def generate_link
     letters =  [('0'..'9'),('a'..'f')].map{|i| i.to_a}.flatten
-    self.link=(0...128).map{ letters[rand(letters.length)] }.join
+    
+    
+    link=(0...128).map{ letters[rand(letters.length)] }.join  
+    while Invitation.where(link: link).present? do 
+      link=(0...128).map{ letters[rand(letters.length)] }.join  
+    end
+
+    
+    self.link=link
   end  
 
 end
