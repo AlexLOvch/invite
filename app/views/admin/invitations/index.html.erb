@@ -1,4 +1,4 @@
-<%=  "Admin/Invitations" %>
+<h2>Invitations</h2>
 
 <table class='table table-striped'>
   <tr>
@@ -20,4 +20,4 @@
 <%= paginate @invitations %>
 </table>
 
-<p><%= link_to "New Admin/Invitation", new_admin_invitation_path %></p>
+<p><%= link_to "New Invitation", new_admin_invitation_path,  :class=>'btn btn-success' %></p>

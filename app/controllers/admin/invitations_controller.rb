@@ -2,7 +2,7 @@ class Admin::InvitationsController < ApplicationController
   layout 'admin'
   
   def index
-    @invitations = Invitation.page params[:page]
+    @invitations = Invitation.order('created_at desc').page(params[:page])
   end
 
   def show
@@ -14,13 +14,17 @@ class Admin::InvitationsController < ApplicationController
   end
 
   def create
-    @invitation = Invitation.new(params[:invitation])
-    if @invitation.save
-      InvitationMailer.invite_email(@invitation).deliver
-      redirect_to [:admin, @invitation], :notice => "Successfully created invitation."
-    else
-      render action: 'new'
-    end
+    if User.where(email: params[:invitation][:email]).present?
+      redirect_to new_admin_invitation_path, :flash => { :error => "This user already registered."}
+    else  
+      @invitation = Invitation.new(params[:invitation])
+      if @invitation.save
+        InvitationMailer.invite_email(@invitation).deliver
+        redirect_to [:admin, @invitation], :notice => "Successfully created invitation."
+      else
+        render action: 'new'
+      end
+    end  
   end
 
 end

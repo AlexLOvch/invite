@@ -1,10 +1,10 @@
 <%= form_for [:admin, @invitation] do |f| %>
   <% @invitation.errors.full_messages.each do |msg| %>
-      <p><%= msg %></p>
-   <% end %> 
+      <div class="alert alert-error"><%= msg %></div>
+  <% end %> 
   <p>
     <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    <%= f.email_field :email %>
   </p>
   <p><%= f.submit %></p>
 <% end %>

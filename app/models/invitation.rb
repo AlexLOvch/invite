@@ -16,10 +16,9 @@ class Invitation < ActiveRecord::Base
 
   private
 
-    def generate_link
-      letters =  [('0'..'9'),('a'..'f')].map{|i| i.to_a}.flatten
+  def generate_link
+    letters =  [('0'..'9'),('a'..'f')].map{|i| i.to_a}.flatten
     self.link=(0...128).map{ letters[rand(letters.length)] }.join
-    end  
-
+  end  
 
 end

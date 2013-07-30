@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130729135550) do
+ActiveRecord::Schema.define(:version => 20130730132410) do
 
   create_table "invitations", :force => true do |t|
     t.string   "email",      :null => false
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(:version => 20130729135550) do
   create_table "users", :force => true do |t|
     t.string   "email",              :null => false
     t.string   "encrypted_password", :null => false
-    t.string   "solt",               :null => false
+    t.string   "salt",               :null => false
     t.string   "name"
     t.string   "phone"
     t.string   "addr"

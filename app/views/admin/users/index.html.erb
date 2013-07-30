@@ -1,4 +1,4 @@
-<%=  "Admin/Users" %>
+<h2>Users</h2>
 
 <table class='table table-striped'>
   <tr>
@@ -16,4 +16,4 @@
 </table>
 <%= paginate @users %>
 
-<p><%= link_to "New Admin/User", new_admin_user_path %></p>
+<p><%= link_to "New User", new_admin_user_path,  :class=>'btn btn-success'  %></p>
