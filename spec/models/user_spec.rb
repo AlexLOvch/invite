@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                 :integer          not null, primary key
+#  email              :string(255)      not null
+#  encrypted_password :string(255)      not null
+#  salt               :string(255)      not null
+#  name               :string(255)
+#  phone              :string(255)
+#  addr               :string(255)
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#
+
 require 'spec_helper'
 
 describe User do
@@ -5,10 +20,10 @@ describe User do
     @user=User.create!(email: 'example@example.com', password: '123456')
   end
 
-  after(:all) do
-    @user.destroy
-  end
-  
+  it { should validate_uniqueness_of(:email) }
+  it { should validate_presence_of(:email) }
+  it { should validate_presence_of(:password) }
+
   it "generate salt" do
      expect(@user.salt).to be 
   end  

@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: invitations
+#
+#  id         :integer          not null, primary key
+#  email      :string(255)      not null
+#  link       :string(255)      not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 require 'spec_helper'
 
 describe Invitation do
@@ -7,11 +18,9 @@ describe Invitation do
     @user=User.create!(email: 'example@example.com', password: '123456')
   end
 
-  after(:all) do
-    @invitation.destroy
-    @invitation1.destroy
-    @user.destroy
-  end
+ 
+  it { should validate_uniqueness_of(:link) }
+  it { should validate_presence_of(:email)  }
 
   it "generate link" do
     expect(@invitation.link).to be

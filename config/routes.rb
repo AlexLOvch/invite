@@ -5,12 +5,12 @@ Invite::Application.routes.draw do
   put "profile" => "users#update_profile", :as => "profile"
   delete 'session' => "sessions#destroy", :as => "log_out"
   resources :users  
-  resources :sessions 
+  resources :sessions, :only => [:new, :create, :destroy] 
   root :to => 'home#index'
   
   namespace :admin do
      resources :users
-     resources :invitations, :only => [:index, :show, :create,:new]
+     resources :invitations, :only => [:index, :show, :new, :create]
      root :to => "users#index"
   end
 end
