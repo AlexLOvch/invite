@@ -5,15 +5,17 @@
     <th>Name</th>
     <th colspan=3>Actions</th>
   </tr>
-  <% for user in @users %>
-    <tr>
-      <td><%= user.email %></td>
-      <td><%= link_to "Show", [:admin, user] %></td>
-      <td><%= link_to "Edit", edit_admin_user_path(user) %></td>
-      <td><%= link_to "Destroy", [:admin, user], :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
-  <% end %>
+  <% if @users  %>
+    <% for user in @users %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= link_to "Show", [:admin, user] %></td>
+        <td><%= link_to "Edit", edit_admin_user_path(user) %></td>
+        <td><%= link_to "Destroy", [:admin, user], :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+   <% end %>  
 </table>
-<%= paginate @users %>
+<%= paginate @users  %>
 
 <p><%= link_to "New User", new_admin_user_path,  :class=>'btn btn-success'  %></p>
