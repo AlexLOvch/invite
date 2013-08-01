@@ -14,7 +14,7 @@ config.action_mailer.smtp_settings = {
   authentication: "plain",
   enable_starttls_auto: true,
   user_name: "inviteherokuapp@gmail.com",
-  password: "invite44"
+  password: "heroku44"
 }
 
 
