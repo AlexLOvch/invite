@@ -5,7 +5,7 @@ ActionMailer::Base.default :from => "inviteherokuapp@gmail.com"
 config.action_mailer.default_url_options = {host: 'inviteheroku.herokuapp.com'}
 config.action_mailer.delivery_method = :smtp
 config.action_mailer.perform_deliveries = true
-config.action_mailer.raise_delivery_errors = true
+config.action_mailer.raise_delivery_errors = false
 config.action_mailer.default :charset => "utf-8"
 config.action_mailer.smtp_settings = {
   address: "smtp.gmail.com",
