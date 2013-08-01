@@ -5,8 +5,8 @@
     <th>Name</th>
     <th colspan=3>Actions</th>
   </tr>
-  <% if @users  %>
-    <% for user in @users %>
+  <% unless @users.nil?  %>
+    <% @users.each do |user| %>
       <tr>
         <td><%= user.email %></td>
         <td><%= link_to "Show", [:admin, user] %></td>
