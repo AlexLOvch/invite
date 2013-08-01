@@ -28,6 +28,7 @@ GEM
     activesupport (3.2.13)
       i18n (= 0.6.1)
       multi_json (~> 1.0)
+    addressable (2.3.5)
     annotate (2.5.0)
       rake
     arel (3.0.2)
@@ -55,6 +56,7 @@ GEM
     database_cleaner (1.0.1)
     diff-lcs (1.2.4)
     erubis (2.7.0)
+    excon (0.25.3)
     execjs (1.4.0)
       multi_json (~> 1.0)
     ffi (1.8.1)
@@ -71,6 +73,14 @@ GEM
       thor (>= 0.14.6)
     guard-rspec (1.2.1)
       guard (>= 1.1)
+    heroku (2.39.5)
+      heroku-api (~> 0.3.7)
+      launchy (>= 0.3.2)
+      netrc (~> 0.7.7)
+      rest-client (~> 1.6.1)
+      rubyzip
+    heroku-api (0.3.14)
+      excon (~> 0.25.1)
     hike (1.2.3)
     i18n (0.6.1)
     journey (1.0.4)
@@ -81,6 +91,8 @@ GEM
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    launchy (2.3.0)
+      addressable (~> 2.3)
     libv8 (3.11.8.17)
     listen (1.1.1)
       rb-fsevent (>= 0.9.3)
@@ -93,6 +105,7 @@ GEM
     method_source (0.8.1)
     mime-types (1.23)
     multi_json (1.7.7)
+    netrc (0.7.7)
     nokogiri (1.5.9)
     pg (0.16.0)
     polyglot (0.3.3)
@@ -131,6 +144,8 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     ref (1.0.5)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -196,6 +211,7 @@ DEPENDENCIES
   fuubar
   guard
   guard-rspec
+  heroku
   jquery-rails
   kaminari (~> 0.14.1)
   pg

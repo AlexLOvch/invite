@@ -22,7 +22,7 @@ class Admin::InvitationsController < ApplicationController
         InvitationMailer.invite_email(@invitation).deliver
         redirect_to [:admin, @invitation], :notice => "Successfully created invitation."
       else
-        render action: 'new'
+        redirect_to new_admin_invitation_path
       end
     end  
   end

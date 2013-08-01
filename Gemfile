@@ -34,5 +34,9 @@ group :test do
   gem "capybara"
 end  
 
+
+gem 'heroku'
+
+
 # Deploy with Capistrano
 # gem 'capistrano'

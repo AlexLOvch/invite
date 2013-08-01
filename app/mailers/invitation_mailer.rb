@@ -1,6 +1,6 @@
 class InvitationMailer < ActionMailer::Base
-  default from: "from@example.com"
-  default_url_options[:host]="example.com"
+  default from: "noreply@lisa.flyrouter.net"
+  default_url_options[:host]="lisa.flyrouter.net:3505"
 
 
   def invite_email(invitation)
