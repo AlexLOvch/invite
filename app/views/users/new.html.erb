@@ -2,10 +2,13 @@
 
 
 <%= form_for @user do |f| %>
-  <%#= devise_error_messages! %>
+  <% @user.errors.full_messages.each do |msg| %>
+      <div class="alert alert-error"><%= msg %></div>
+  <% end %> 
 
   <div><%= f.label :email %><br />
-  <%= f.email_field :email, :value=>@user.email, :disabled => true %></div>
+  <%= f.email_field :email, :value=>@user.email, :readonly => true %></div>
+  <%= f.hidden_field :link, :value=>params[:link] %>
 
   <div><%= f.label :password %><br />
   <%= f.password_field :password %></div>

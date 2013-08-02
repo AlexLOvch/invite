@@ -15,9 +15,12 @@ class UsersController < ApplicationController
   end  
     
   def create  
-    @user = User.new(params[:user])  
-    if @user.save  
-      redirect_to root_url, :notice => "Signed up!"  
+    link=params[:user].delete(:link)
+    @user = User.new(params[:user]) 
+    @user.email=Invitation.where(link: link).first.try(:email)
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to profile_url, :notice => "Signed up! Please fill in your personal details, or go to our #{self.class.helpers.link_to('homepage',root_path)}!"  
     else  
       render "new"  
     end  
